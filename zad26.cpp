@@ -49,6 +49,3 @@ void print_pascal(int **pascal, int n) {
         cout << endl;
     }
 }
-
-
-

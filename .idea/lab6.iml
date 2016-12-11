@@ -2,10 +2,12 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/zad27.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zad26.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/main.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zad25.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zad27.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zad25.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zad26.cpp" isTestSource="false" />
     </content>
