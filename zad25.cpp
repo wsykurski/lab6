@@ -6,9 +6,9 @@
 
 int * increase_table(int *tab, int &old_size)
 {
-    old_size = old_size * 2;
-    int * result = new int [old_size];
+    int * result = new int [old_size * 2];
     memcpy(result, tab, old_size * sizeof(int));
+    old_size = old_size * 2;
     return result;
 }
 
