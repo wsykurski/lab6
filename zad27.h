@@ -36,6 +36,12 @@ List*  push(List* s, Node* n);
 // punkt c:
 List*  inject(List* s, Node* n);
 
+// punkt d:
+List* insertAfter(List* s, Node* curr, Node* n);
+
+// punkt e:
+List* insertBefore(List* s, Node* curr, Node* n);
+
 void zad27();
 
 #endif //LAB6_ZAD27_H

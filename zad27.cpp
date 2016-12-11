@@ -10,6 +10,8 @@ void zad27() {
     Node *p_node = node(10);
     Node *p_node2 = node(5);
     Node *p_node3 = node(-1);
+    Node *p_node4 = node(4);
+    Node *p_node5 = node(3);
     cout << "Wartość node: " << p_node->value << endl;
     cout << "Pushe:" << endl;
     p_list = push(p_list, p_node);
@@ -21,6 +23,14 @@ void zad27() {
     PrintList(p_list);
     cout << endl << "Inject na końcu:" << endl;
     p_list = inject(p_list, p_node3);
+    cout << "Drukowanie listy" << endl;
+    PrintList(p_list);
+    cout << endl << "Wstawianie po p_node_2:" << endl;
+    p_list = insertAfter(p_list, p_node2, p_node4);
+    cout << "Drukowanie listy" << endl;
+    PrintList(p_list);
+    cout << endl << "Wstawianie przed p_node:" << endl;
+    p_list = insertBefore(p_list, p_node, p_node5);
     cout << "Drukowanie listy" << endl;
     PrintList(p_list);
 }
@@ -68,6 +78,35 @@ List *inject(List *s, Node *n) {
     {
         s->last->next = n;
         s->last = s->last->next;
+    }
+    return s;
+}
+
+List *insertAfter(List *s, Node *curr, Node *n) {
+    if (checkList(s, n))
+    {
+        Node *temp = curr->next;
+        curr->next = n;
+        n->next = temp;
+        if (curr == s->last) s->last == n;
+    }
+    return s;
+}
+
+List *insertBefore(List *s, Node *curr, Node *n) {
+    if (checkList(s, n))
+    {
+        Node *temp = s->first;
+        if (temp == curr)
+        {
+            n->next = temp;
+            s->first = n;
+        }
+        else {
+            while (temp->next && temp->next != curr) temp = temp->next;
+            temp->next = n;
+            n->next = curr;
+        }
     }
     return s;
 }
