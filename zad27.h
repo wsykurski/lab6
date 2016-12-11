@@ -10,10 +10,8 @@ struct Node
 {
     int value;
     struct Node *next;
-    Node() : value(0), next(nullptr)
-    { }
-    Node(int val, Node *nx) :  value(val), next(nx)
-    {}
+    Node() : value(0), next(nullptr) {}
+    Node(int val, Node *nx) :  value(val), next(nx) {}
 };
 
 

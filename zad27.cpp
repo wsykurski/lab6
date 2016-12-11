@@ -26,11 +26,11 @@ void zad27() {
     p_list = inject(p_list, p_node3);
     cout << "Drukowanie listy" << endl;
     printLR(p_list);
-    cout << endl << "Wstawianie po p_node_2:" << endl;
+    cout << endl << "Wstawianie po p_node_2(5):" << endl;
     p_list = insertAfter(p_list, p_node2, p_node4);
     cout << "Drukowanie listy" << endl;
     printLR(p_list);
-    cout << endl << "Wstawianie przed p_node:" << endl;
+    cout << endl << "Wstawianie przed p_node(10):" << endl;
     p_list = insertBefore(p_list, p_node, p_node5);
     cout << "Drukowanie listy" << endl;
     printLR(p_list);
@@ -132,10 +132,7 @@ List *del(List *s, int v) {
     }
     else
     {
-        while(temp->next && temp->next->value != v)
-        {
-            temp = temp->next;
-        }
+        while(temp->next && temp->next->value != v) temp = temp->next;
         if (temp->next && temp->next->value == v)
         {
             Node *eraser = temp->next;
@@ -161,5 +158,3 @@ void printRL(List *s) {
     Node *temp = s->first;
     printNodeRec(temp);
 }
-
-

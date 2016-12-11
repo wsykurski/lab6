@@ -52,7 +52,7 @@ int *parzyste(int *tab, int n)
 }
 
 int **test(int *tab, int n) {
-    int **result = new int*[2] ;
+    int **result = new int*[2];
     result[0] = dzielniki(n);
     result[1] = parzyste(tab, n);
     return result;

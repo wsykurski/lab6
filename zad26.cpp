@@ -6,7 +6,7 @@ using namespace std;
 
 void zad26() {
     const int size = 6;
-    cout << "Zadanie 26" << endl;
+    cout << endl << endl << "Zadanie 26" << endl;
     cout << "Inicjacja trójkąta wymiarze " << size << ":" << endl;
     int ** triangle = pascal(size);
     print_pascal(triangle, size);
@@ -24,10 +24,7 @@ int **pascal(int n) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < i; ++j) {
             if(j == 0 || j == i - 1) result[i][j] = 1;
-            else
-            {
-                result[i][j] = result[i-1][j-1] + result[i-1][j];
-            }
+            else result[i][j] = result[i-1][j-1] + result[i-1][j];
         }
     }
     return result;
@@ -35,9 +32,7 @@ int **pascal(int n) {
 
 void usun(int **pascal, int n) {
     n = n +2;
-    for (int i = 0; i < n; ++i) {
-        delete[] pascal[i];
-    }
+    for (int i = 0; i < n; ++i) delete[] pascal[i];
     delete[] pascal;
 }
 
