@@ -12,30 +12,37 @@ void zad27() {
     Node *p_node3 = node(-1);
     Node *p_node4 = node(4);
     Node *p_node5 = node(3);
-    cout << "Wartość node: " << p_node->value << endl;
-    cout << "Pushe:" << endl;
+    cout << "Wartość node: " << endl;
+    printNode(p_node);
+    cout << endl << "Pushe:" << endl;
     p_list = push(p_list, p_node);
     p_list = push(p_list, p_node2);
     p_list = push(p_list, p_node);
     cout << "Wartość pierwszego wezla listy: " << p_list->first->value << endl;
     cout << "Wartość ostatniego wezla listy: " << p_list->last->value << endl;
     cout << endl << "Drukowanie listy" << endl;
-    PrintList(p_list);
+    printLR(p_list);
     cout << endl << "Inject na końcu:" << endl;
     p_list = inject(p_list, p_node3);
     cout << "Drukowanie listy" << endl;
-    PrintList(p_list);
+    printLR(p_list);
     cout << endl << "Wstawianie po p_node_2:" << endl;
     p_list = insertAfter(p_list, p_node2, p_node4);
     cout << "Drukowanie listy" << endl;
-    PrintList(p_list);
+    printLR(p_list);
     cout << endl << "Wstawianie przed p_node:" << endl;
     p_list = insertBefore(p_list, p_node, p_node5);
     cout << "Drukowanie listy" << endl;
-    PrintList(p_list);
+    printLR(p_list);
+    cout << endl << "Usuniecie wartosci 10:" << endl;
+    p_list = del(p_list, 10);
+    cout << "Drukowanie listy" << endl;
+    printLR(p_list);
+    cout << endl << "Drukowanie w druga strone:" << endl;
+    printRL(p_list);
 }
 
-void PrintList(List *list) {
+void printLR(List *list) {
     Node *temp = list->first;
     while(temp)
     {
@@ -109,6 +116,50 @@ List *insertBefore(List *s, Node *curr, Node *n) {
         }
     }
     return s;
+}
+
+List *del(List *s, int v) {
+    Node *temp = s->first;
+    if(temp->value == v)
+    {
+        if(temp->next) s->first = temp->next;
+        if(temp == s->last)
+        {
+            s->last = NULL;
+            s->first = NULL;
+        }
+        delete temp;
+    }
+    else
+    {
+        while(temp->next && temp->next->value != v)
+        {
+            temp = temp->next;
+        }
+        if (temp->next && temp->next->value == v)
+        {
+            Node *eraser = temp->next;
+            if(eraser->next) temp->next = eraser->next;
+            else s->last = temp;
+            delete eraser;
+        }
+    }
+    return s;
+}
+
+void printNode(Node *n) {
+    cout << n->value << ", ";
+}
+
+void printNodeRec(Node *n)
+{
+    if(n->next) printNodeRec(n->next);
+    printNode(n);
+}
+
+void printRL(List *s) {
+    Node *temp = s->first;
+    printNodeRec(temp);
 }
 
 

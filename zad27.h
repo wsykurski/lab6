@@ -24,7 +24,6 @@ struct List
 
 // pomocnicze:
 bool checkList(List * list, Node * n);
-void PrintList(List * list);
 
 // punkt a:
 List * list();
@@ -41,6 +40,18 @@ List* insertAfter(List* s, Node* curr, Node* n);
 
 // punkt e:
 List* insertBefore(List* s, Node* curr, Node* n);
+
+// punkt f:
+List*  del(List* s, int v);
+
+// punkt g:
+void  printNode(Node* n);
+
+// punkt h:
+void printLR(List *list);
+
+// punlt i:
+void  printRL(List* s);
 
 void zad27();
 
